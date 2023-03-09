@@ -1,0 +1,267 @@
+@import "./main.scss";
+// @import "bulma/sass/utilities/functions";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+    Variables
+*/
+
+::root {
+  --max-width: 1100px;
+  --border-radius: 12px;
+  --font-mono: "Gill Sans", sans-serif;
+
+  --foreground: 255, 255, 255;
+  --background: 0, 0, 0;
+
+  --primary-light: $primary-light-rgb;
+  --primary: $primary-rgb;
+  --primary-dark: $primary-dark-rgb;
+
+  --secondary-light: $secondary-light-rgb;
+  --secondary: $secondary-rgb;
+  --secondary-dark: $secondary-dark-rgb;
+
+  --tertiary-light: $tertiary-light-rgb;
+  --tertiary: $tertiary-rgb;
+  --tertiary-dark: $tertiary-dark-rgb;
+
+  --box-shadow: 89, 89, 89;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: 0, 0, 0;
+    --foreground: 255, 255, 255;
+    --box-shadow: 216, 216, 216;
+  }
+}
+
+$bgToFg: (
+  "white": var(--foreground),
+  "light": var(--foreground),
+  "dark": $grey-darker,
+  "black": $grey-darker,
+  "grey-darker": $black,
+  "primary-dark": var(--foreground),
+  "primary": var(--foreground),
+  "primary-light": var(--foreground),
+  "secondary-dark": var(--foreground),
+  "secondary": var(--foreground),
+  "secondary-light": var(--foreground),
+  "tertiary-dark": var(--foreground),
+  "tertiary": var(--foreground),
+  "tertiary-light": var(--foreground),
+  "green-light": var(--foreground),
+  "green": var(--foreground),
+  "green-dark": var(--foreground),
+  "red-light": var(--foreground),
+  "red": var(--foreground),
+  "red-dark": var(--foreground),
+  "blue-light": var(--foreground),
+  "blue": var(--foreground),
+  "blue-dark": var(--foreground),
+) !default;
+
+@mixin getForegroundColor($backgroundColor) {
+  color: map-get($bgToFg, $backgroundColor);
+}
+
+/*
+    Global main styles
+*/
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+* {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif !important;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  color: rgb(var(--foreground));
+  background: linear-gradient(to bottom, transparent, rgb(var(--background)))
+    rgb(var(--background-start-rgb));
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Georgia, "Times New Roman", Times, serif !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+#od {
+  margin: 0;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: Georgia, serif !important;
+  background-color: --white !important;
+  background: --white !important;
+  color: --black !important;
+  border-color: --dark;
+}
+
+/*
+    Global classes styles
+*/
+
+.title {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 30px;
+}
+
+@each $id, $val in $colors {
+  .has-background-#{$id} {
+    background-color: $val;
+    color: getForegroundColor($val);
+  }
+  .has-text-#{$id} {
+    color: $val;
+  }
+}
+@each $id, $val in $spaces {
+  .m-#{$id} {
+    margin: $val;
+  }
+  .p-#{$id} {
+    padding: $val;
+  }
+  .mx-#{$id} {
+    margin-left: $val;
+    margin-right: $val;
+  }
+  .px-#{$id} {
+    padding-left: $val;
+    padding-right: $val;
+  }
+  .my-#{$id} {
+    margin-top: $val;
+    margin-bottom: $val;
+  }
+  .py-#{$id} {
+    padding-top: $val;
+    padding-bottom: $val;
+  }
+  .mt-#{$id} {
+    margin-top: $val;
+  }
+  .pt-#{$id} {
+    padding-top: $val;
+  }
+  .mr-#{$id} {
+    margin-right: $val;
+  }
+  .pr-#{$id} {
+    padding-right: $val;
+  }
+  .mb-#{$id} {
+    margin-bottom: $val;
+  }
+  .pb-#{$id} {
+    padding-bottom: $val;
+  }
+  .ml-#{$id} {
+    margin-left: $val;
+  }
+  .pl-#{$id} {
+    padding-left: $val;
+  }
+}
+.is-clickable {
+  cursor: pointer;
+}
+.is-min {
+  width: fit-content;
+}
+.is-half {
+  width: 50%;
+}
+.is-full {
+  width: 100%;
+}
+.is-overflow-sroll {
+  overflow: scroll;
+}
+.is-overflow-hidden {
+  overflow: hidden;
+}
+.is-flex {
+  display: flex;
+}
+.is-flex-row {
+  flex-direction: row;
+}
+.is-flex-column {
+  flex-direction: column;
+}
+.is-wrap {
+  flex-wrap: wrap;
+}
+.is-justified-center {
+  justify-content: center;
+}
+.is-justified-between {
+  justify-content: space-between;
+}
+.is-justified-around {
+  justify-content: space-around;
+}
+.is-justified-evenly {
+  justify-content: space-evenly;
+}
+.is-justified-start {
+  justify-content: flex-start;
+}
+.is-justified-end {
+  justify-content: flex-end;
+}
+.is-flex-grow-1 {
+  flex-grow: 1;
+}
+.is-flex-order-0 {
+  order: 0;
+}
+.is-flex-order-1 {
+  order: 1;
+}
+.has-align-items-start {
+  align-self: flex-start;
+}
+.has-align-items-center {
+  align-self: center;
+}
+.has-align-items-end {
+  align-self: flex-end;
+}
+.has-text-align-start {
+  text-align: start;
+}
+.has-text-align-center {
+  text-align: center;
+}
+.has-text-align-end {
+  text-align: end;
+}
