@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes, DetailedHTMLProps, FC } from "react";
 import styles from "./Button.module.scss";
-import { TButton } from "./button-type";
+import { TButton } from "./button.type";
 import Icon from "../icon";
 
 const Button: FC<
