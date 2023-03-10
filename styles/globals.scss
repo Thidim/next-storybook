@@ -32,42 +32,13 @@
   --box-shadow: 89, 89, 89;
 }
 
-@media (prefers-color-scheme: dark) {
+// TODO implement darkmode on storybook
+@media (prefers-color-scheme: white) {
   :root {
     --background: 0, 0, 0;
     --foreground: 255, 255, 255;
     --box-shadow: 216, 216, 216;
   }
-}
-
-$bgToFg: (
-  "white": var(--foreground),
-  "light": var(--foreground),
-  "dark": $grey-darker,
-  "black": $grey-darker,
-  "grey-darker": $black,
-  "primary-dark": var(--foreground),
-  "primary": var(--foreground),
-  "primary-light": var(--foreground),
-  "secondary-dark": var(--foreground),
-  "secondary": var(--foreground),
-  "secondary-light": var(--foreground),
-  "tertiary-dark": var(--foreground),
-  "tertiary": var(--foreground),
-  "tertiary-light": var(--foreground),
-  "green-light": var(--foreground),
-  "green": var(--foreground),
-  "green-dark": var(--foreground),
-  "red-light": var(--foreground),
-  "red": var(--foreground),
-  "red-dark": var(--foreground),
-  "blue-light": var(--foreground),
-  "blue": var(--foreground),
-  "blue-dark": var(--foreground),
-) !default;
-
-@mixin getForegroundColor($backgroundColor) {
-  color: map-get($bgToFg, $backgroundColor);
 }
 
 /*
@@ -106,9 +77,9 @@ h6 {
   font-family: Georgia, "Times New Roman", Times, serif !important;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: white) {
   html {
-    color-scheme: dark;
+    color-scheme: white;
   }
 }
 

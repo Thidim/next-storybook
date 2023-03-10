@@ -86,3 +86,33 @@ $colors: (
   "blue": $blue,
   "blue-dark": $blue-dark,
 );
+
+$bgToFg: (
+  "white": var(--foreground),
+  "light": var(--foreground),
+  "dark": $grey-darker,
+  "black": $grey-darker,
+  "grey-darker": $black,
+  "primary-dark": $white,
+  "primary": $white,
+  "primary-light": $white,
+  "secondary-dark": $white,
+  "secondary": $white,
+  "secondary-light": $white,
+  "tertiary-dark": $white,
+  "tertiary": $white,
+  "tertiary-light": $white,
+  "green-light": var(--foreground),
+  "green": var(--foreground),
+  "green-dark": var(--foreground),
+  "red-light": var(--foreground),
+  "red": var(--foreground),
+  "red-dark": var(--foreground),
+  "blue-light": var(--foreground),
+  "blue": var(--foreground),
+  "blue-dark": var(--foreground),
+) !default;
+
+@mixin getForegroundColor($backgroundColor) {
+  color: map-get($bgToFg, $backgroundColor);
+}
