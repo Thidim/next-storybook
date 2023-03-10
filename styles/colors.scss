@@ -1,0 +1,118 @@
+$black: rgb(0, 0, 0);
+$black-rgb: 0, 0, 0;
+$white: rgb(255, 255, 255);
+$white-rgb: 255, 255, 255;
+
+$primary-light: rgb(112, 112, 255);
+$primary-light-rgb: 112, 112, 255;
+$primary: rgb(77, 77, 255);
+$primary-rgb: 77, 77, 255;
+$primary-dark: rgb(61, 61, 204);
+$primary-dark-rgb: 61, 61, 204;
+
+$secondary-light: rgb(166, 95, 216);
+$secondary-light-rgb: 166, 95, 216;
+$secondary: rgb(144, 56, 207);
+$secondary-rgb: 144, 56, 207;
+$secondary-dark: rgb(115, 44, 165);
+$secondary-dark-rgb: 115, 44, 165;
+
+$tertiary-light: rgb(255, 102, 102);
+$tertiary-light-rgb: 255, 102, 102;
+$tertiary: rgb(255, 64, 64);
+$tertiary-rgb: 255, 64, 64;
+$tertiary-dark: rgb(204, 51, 51);
+$tertiary-dark-rgb: 204, 51, 51;
+
+$light: rgb(229, 229, 229);
+$light-rgb: 229, 229, 229;
+$dark: rgb(25, 25, 25);
+$dark-rgb: 25, 25, 25;
+$smoky: rgb(234, 234, 234);
+$smoky-rgb: 234, 234, 234;
+$smoke: rgb(45, 45, 45);
+$smoke-rgb: 45, 45, 45;
+$grey-darker: rgb(169, 169, 169);
+$grey-darker-rgb: 169, 169, 169;
+
+$green-light: rgb(163, 217, 163);
+$green-light-rgb: 163, 217, 163;
+$green: rgb(102, 192, 102);
+$green-rgb: 102, 192, 102;
+$green-dark: rgb(61, 115, 61);
+$green-dark-rgb: 61, 115, 61;
+
+$red-light: rgb(210, 147, 147);
+$red-light-rgb: 210, 147, 147;
+$red: rgb(192, 102, 102);
+$red-rgb: 192, 102, 102;
+$red-dark: rgb(134, 71, 71);
+$red-dark-rgb: 134, 71, 71;
+
+$blue-light: rgb(147, 147, 210);
+$blue-light-rgb: 147, 147, 210;
+$blue: rgb(102, 102, 192);
+$blue-rgb: 102, 102, 192;
+$blue-dark: rgb(71, 71, 134);
+$blue-dark-rgb: 71, 71, 134;
+
+$white-box-shadow: rgb(89, 89, 89);
+$white-box-shadow-rgb: 89, 89, 89;
+$dark-box-shadow: rgb(216, 216, 216);
+$dark-box-shadow-rgb: 216, 216, 216;
+
+$colors: (
+  "white": $white,
+  "light": $light,
+  "dark": $dark,
+  "black": $black,
+  "grey-darker": $grey-darker,
+  "primary-dark": $primary-dark,
+  "primary": $primary,
+  "primary-light": $primary-light,
+  "secondary-dark": $secondary-dark,
+  "secondary": $secondary,
+  "secondary-light": $secondary-light,
+  "tertiary-dark": $tertiary-dark,
+  "tertiary": $tertiary,
+  "tertiary-light": $tertiary-light,
+  "green-light": $green-light,
+  "green": $green,
+  "green-dark": $green-dark,
+  "red-light": $red-light,
+  "red": $red,
+  "red-dark": $red-dark,
+  "blue-light": $blue-light,
+  "blue": $blue,
+  "blue-dark": $blue-dark,
+);
+
+$bgToFg: (
+  "white": var(--foreground),
+  "light": var(--foreground),
+  "dark": $grey-darker,
+  "black": $grey-darker,
+  "grey-darker": $black,
+  "primary-dark": $white,
+  "primary": $white,
+  "primary-light": $white,
+  "secondary-dark": $white,
+  "secondary": $white,
+  "secondary-light": $white,
+  "tertiary-dark": $white,
+  "tertiary": $white,
+  "tertiary-light": $white,
+  "green-light": var(--foreground),
+  "green": var(--foreground),
+  "green-dark": var(--foreground),
+  "red-light": var(--foreground),
+  "red": var(--foreground),
+  "red-dark": var(--foreground),
+  "blue-light": var(--foreground),
+  "blue": var(--foreground),
+  "blue-dark": var(--foreground),
+) !default;
+
+@mixin getForegroundColor($backgroundColor) {
+  color: map-get($bgToFg, $backgroundColor);
+}

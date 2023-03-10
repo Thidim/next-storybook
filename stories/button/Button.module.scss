@@ -1,0 +1,86 @@
+@import "@/styles/main.scss";
+
+$spacing-values: $spaces;
+
+$button-font-sizes: (
+  "small": 5,
+  "regular": 6,
+  "large": 7,
+) !default;
+$button-paddings: (
+  "small": 9px space(2),
+  "regular": space(3),
+  "large": space(3) space(4),
+) !default;
+$button-widths: (
+  "min": "fit-content",
+  "one-fifth": 20%,
+  "one-fourth": 25%,
+  "one-third": 33%,
+  "half": 50%,
+  "two-third": 60%,
+  "three-fourth": 75%,
+  "four-fifth": 80%,
+  "full": 100%,
+) !default;
+
+.od-button {
+  border-radius: borderRadius(10);
+  height: fit-content;
+  border: 0;
+  min-width: fit-content;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1;
+
+  :global .icon-left {
+    &:has(+ span) {
+      margin-right: space(1);
+    }
+  }
+  :global .icon-right {
+    margin-left: space(1);
+  }
+}
+
+.is-squared {
+  border-radius: borderRadius(1);
+}
+
+@each $sizeName, $sizeValue in $button-font-sizes {
+  .is-#{$sizeName} {
+    @include fontSize($sizeValue);
+
+    padding: map-get($button-paddings, $sizeName);
+  }
+}
+
+@each $widthName, $witdthValue in $button-widths {
+  .is-#{$widthName} {
+    width: $witdthValue;
+  }
+}
+
+@each $id, $val in $colors {
+  .is-#{$id} {
+    @include getForegroundColor($id);
+    background: $val;
+    &.is-outlined,
+    &.is-blank {
+      background: transparent;
+      color: $val;
+    }
+    &.is-outlined {
+      border: 1px solid $val;
+    }
+  }
+}
+
+@keyframes spinner {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
