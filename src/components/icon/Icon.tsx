@@ -1,8 +1,7 @@
-import { sizeToIconSizeMap } from "@/utils/size";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FC } from "react";
-import { TIcon } from "./icon-type";
+import { TIcon } from "./icon.type";
 import styles from "./Icon.module.scss";
 
 const doUpFirstLetter = (str: string) =>
@@ -29,7 +28,7 @@ const Icon: FC<TIcon> = ({
           .join(" ")
           .replaceAll(" false", "")}
         color={color}
-        size={sizeToIconSizeMap[size]}
+        size="sm"
         icon={fas[`fa${doUpFirstLetter(name)}`]}
         {...props}
       />
